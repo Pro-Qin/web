@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css?family=Heebo:300&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #000;
+  --secondary-color: #fff;
+  --primary-alphacolor: #00000080
+}
+
+html {
+  transition: all 0.5s ease-in;
+}
+
+
+html.dark {
+  --primary-color: #fff;
+  --secondary-color: #333;
+  --primary-alphacolor: #ffffff7f;
+  background-color: #111;
+  color: var(--primary-color);
+}
+
+body {
+  font-family: 'Heebo', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  cursor: none;
+}
+
+#circle {
+  cursor: none;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--primary-alphacolor);
+  mix-blend-mode: difference;
+  pointer-events: none;
+  z-index: 2;
+  transition: background-color 0.15s ease-in-out,x 0.1s ease,y 0.1s ease;
+}
+
+.icontoggle {
+  cursor: none;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: 0;
+  border-radius: 50px;
+  padding: 7px 8px;
+  position: absolute;
+  left: 30px;
+  bottom: 20px;
+  font-family: 'SF Pro';
+  font-size:13px;
+}
+
+.back {
+  cursor: none;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: 0;
+  border-radius: 80px;
+  padding: 7px 15px;
+  position: absolute;
+  left: 80px;
+  bottom: 20px;
+  font-size:11px;
+}
+.back .circle {
+  cursor: none;
+  position: absolute;
+  background-color: #fff;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  animation: scale 0.5s ease-out;
+}
+
+@keyframes scale {
+  to {
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 0;
+  }
+}
+
+.center-text{
+  top: 20%;
+  left: 20%;
+  mask-position: center;
+  position: relative;
+  font-size: 15px;
+  letter-spacing: 0.3px;
+  color: var(--primary-alphacolor);
+  font-family: 'Avenir';
+}
+
+.toggle:focus {
+  outline: none;
+}
+
+.clock-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.clock {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.needle {
+  background-color: var(--primary-color);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 65px;
+  width: 3px;
+  transform-origin: bottom center;
+  transition: all 0.5s ease-in;
+}
+
+.needle.hour {
+  transform: translate(-50%, -100%) rotate(0deg);
+}
+
+.needle.minute {
+  transform: translate(-50%, -100%) rotate(0deg);
+  height: 80px;
+}
+
+.needle.second {
+  height: 90px;
+  transform: translate(-50%, -100%) rotate(1080deg);
+  background-color: #e74c3c;
+  /* 360 degrees * 3 + 180 degrees (for 30 seconds) = 1080 degrees */
+}
+
+.center-point {
+  background-color: #e74c3c;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.center-point::after {
+  content: '';
+  background-color: var(--primary-color);
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.time {
+  font-size: 30px;
+  font-family: 'AiDeep';
+  font-weight: bolder;
+}
+
+.date {
+  color: #aaa;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.date .circle {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border-radius: 50%;
+  height: 18px;
+  width: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 19px;
+  transition: all 0.5s ease-in;
+  font-size: 11px;
+}
+
+/* .count-time .text-tip{
+  margin: 10px 0;
+  color: #aaa;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-family: 'AiDeep';
+  font-weight: bolder;
+} */
+
+.count-time{
+  text-align: center;
+  font-size:11px;
+  background-color: rgba(0,0,0,0);
+  color: rgba(0,0,0,0);
+  border: 1;
+  border-radius: 80px;
+  padding: 7px 15px;
+  position: absolute;
+  left: 170px;
+  bottom: 60px;
+  font-size:11px;
+}
+.count-fangjia-time{
+  text-align: center;
+  font-size:11px;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: 1;
+  border-radius: 80px;
+  padding: 7px 15px;
+  position: absolute;
+  left: 170px;
+  bottom: 20px;
+  font-size:11px;
+  /* cursor: no-drop; */
+}
+
+.count-time span {
+  font-size: 26px;
+}

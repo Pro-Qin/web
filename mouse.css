@@ -1,0 +1,110 @@
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.cursor {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ff6f69;
+    opacity: 0.5;
+    z-index: 9999;
+    pointer-events: none;
+    transition: all 0.1s ease;
+    transform: translate(-50%, -50%);
+}
+.cursor-hover {
+    transform: scale(2.5);
+    opacity: 0.8;
+}
+
+.container {
+    width: 80%;
+    margin: 100px auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 48px;
+    margin-bottom: 50px;
+}
+
+p {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #333;
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 10px;
+    border: none;
+    transition: all 0.1s ease;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #FFF;
+    color: #333;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+    /* 隐藏用户的光标 */
+    cursor: none;
+}
+
+.btn-1:hover ~ .cursor {
+    transform: scale(2.5);
+    background-color: #ff6f69;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+    /* 修复锚点位置 */
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    transform-origin: top left;
+}
+.btn-2:hover ~ .cursor {
+    transform: scale(3.5);
+    background-color: #ffd166;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+    /* 修复锚点位置 */
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    transform-origin: top left;
+}
+.btn-3:hover ~ .cursor {
+    transform: scale(4.5);
+    background-color: #06d6a0;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+    /* 修复锚点位置 */
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    transform-origin: top right;
+}
+.btn-4:hover ~ .cursor {
+    transform: scale(5.5);
+    background-color: #118ab2;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+    /* 修复锚点位置 */
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    transform-origin: bottom left;
+}
+
+/* 替代用户的光标 */
+html {
+    cursor: none;
+}

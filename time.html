@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>考 试 倒 计 时</title>
+    <style>
+        body {
+            background-color: black;
+            font-family: Arial, "Microsoft YaHei", sans-serif;
+        }
+        #countdown-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 300px;
+            text-align: center;
+            margin: 0 auto;
+        }
+        #countdown {
+            width: 100%;
+            height: 200px;
+            text-align: center;
+            font-size: 120px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .time-unit {
+            color: white;
+            font-size: 80px;
+            transition: color 1s linear;
+        }
+        .time-unit.red {
+            color: red;
+        }
+        #time-stamp {
+            width: 100%;
+            height: 40px;
+            text-align: center;
+            font-size: 24px;
+            color: white;
+            position: fixed;
+            bottom: 0;
+        }
+
+        .gradient {
+        /* 设置容器尺寸 - 原理1 */
+        width: 100vmax;
+        height: 100vmax;
+        /* 背景渐变色 - 原理2 */
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        /* 背景尺寸 - 原理3 */
+        background-size: 600% 600%;
+        /* 循环动画 - 原理4 */
+        animation: gradientBG 900s ease infinite;
+        /* 放置在左上角 */
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        }
+
+        
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+       
+        .countdown-wrapper {
+            position: relative;
+            z-index: 1;
+            /* 调整文本样式 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .countdown-text {
+            /* 添加透明度 - 原理5 */
+            opacity: 0.55;
+            /* 文字样式 - 原理6 */
+            font-size: 3.5rem;
+            text-align: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        #fullscreen-div {
+            /* 添加透明度 - 原理5 */
+            opacity: 1;
+            top:0px;
+            left:0px;
+            
+        }
+        </style>
+
+</head>
+
+<body>
+    <div id="fullscreen-div">
+        <button id="fullscreen-btn">进入全屏</button>
+    </div>
+    <div class="gradient"></div>
+    <div class="countdown-wrapper">
+        <span class="countdown-text">期末考试倒计时 期末必胜</span>
+      </div>
+    <div id="countdown-container">
+        <div id="countdown">
+            <span class="time-unit" id="days"></span>
+            <span class="time-unit" id="hours"></span>
+            <span class="time-unit" id="minutes"></span>
+            <span class="time-unit seconds" id="seconds"></span>
+            <!-- <span class="time-unit secondss" id="secondss"></span> -->
+        </div>
+        <div id="time-stamp"></div>
+    </div>
+    <script src="time.js"></script>
+</body>
+
+</html>
