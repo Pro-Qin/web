@@ -96,13 +96,13 @@ setTimeout("show_time()",1000);
 
 var showfangjiatime = function () {
     var nowtime = new Date(),  //获取当前时间
-        endtime = new Date("2023/06/25 00:00:00");  //定义结束时间
+        endtime = new Date("2023/09/01 08:00:00");  //定义结束时间
     var lefttime = endtime.getTime() - nowtime.getTime(),  //距离结束时间的毫秒数
         leftd = Math.floor(lefttime/(1000*60*60*24)),  //计算天数
         lefth = Math.floor(lefttime/(1000*60*60)%24),  //计算小时数
         leftm = Math.floor(lefttime/(1000*60)%60),  //计算分钟数
         lefts = Math.floor(lefttime/1000%60);  //计算秒数
-    return "距离期末考试还有:"+leftd + "天 " + lefth + "时 " + leftm + "分 " + lefts + "秒";  //返回倒计时的字符串
+    return "距离开学还有:"+leftd + "天 " + lefth + "时 " + leftm + "分 " + lefts + "秒";  //返回倒计时的字符串
 }
 
 // setTimeout("showfangjiatime()",1000);
